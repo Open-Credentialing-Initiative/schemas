@@ -895,22 +895,21 @@
             <tr>
               <td><b>jti</b></td>
               <td>
-                DID of the holder generating the Verifiable Presentation
-                Represents the id property of the verifiable presentation (VP)
+                This field represents the id property of the verifiable presentation being generated.
               </td>
               <td>https://w3c.github.io/vc-data-model/#jwt-encoding</td>
             </tr>
             <tr>
               <td><b>iss</b></td>
               <td>
-                The holder property of the VP
+               Represents the holder property of the verifiable presentation being generated.
               </td>
               <td>https://w3c.github.io/vc-data-model/#jwt-encoding</td>
             </tr>
             <tr>
               <td><b>aud</b></td>
               <td>
-                Verifiable Presentation Audience | Required, but value should be empty for the time being as this is not used in OCI context
+                Verifiable Presentation Audience. We might include PI_Verification in this field to represent that this VP is used in this context
                 <br>
                 We might include ATP_DSCSA in this field to represent that this VP is used in this context
               </td>
@@ -1059,6 +1058,7 @@
                       }
                    ]
                 },
+                  “nonce” : “31923d0c-b8ba-49e2-ba05-7b967bf4377b”
              }             
             </pre>
           </aside>
