@@ -13,19 +13,19 @@
   <meta http-equiv=" Content-Type" content="text/html;charset=utf-8" />
 
   <!-- Metadata Attributes for Bot Previews-->
-  <meta property="og:title" content="Credential Schema Version 1.0.0">
+  <meta property="og:title" content="Credential Schema Version 1.1.0">
   <meta property="og:description" content="OCI specification describing Credential Schema Version 1.0.0">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/79323216?s=200&v=4">
   <meta property="og:url" content="https://github.com/Open-Credentialing-Initiative/schemas">
 
-  <title>Credential Schema Version 1.0.0</title>
+  <title>Credential Schema Version 1.1.0</title>
 
   <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
   <script type="text/javascript" class="remove">
     var respecConfig = {
       specStatus: 'base',
-      shortName: 'Credential Schema Version 1.0.0',
-      publishDate: '4 Feb 2021',
+      shortName: 'Credential Schema Version 1.1.0',
+      publishDate: '10 May 2023',
       logos: [],
       lint: {
         'check-punctuation': true,
@@ -127,7 +127,7 @@
 </head>
 
 <body>
-  <p class="copyright">Copyright © 2021 Open Credentialing Initiative.</p>
+  <p class="copyright">Copyright © 2023 Open Credentialing Initiative.</p>
   <section id="abstract">
     <p>
       In November 2013, the U.S. Congress enacted the Drug Supply Chain
@@ -152,9 +152,9 @@
 
       This specification describes a Linked Data vocabulary for
       asserting enterprise identity verification and ATP license status of
-      dispensers, wholesalers and manufacturers used to verify a counterparty
+      manufacturers, repackagers, wholesalers, third-party logistics providers (3PLs), and dispensers used to verify a counterparty
       enterprise identity and to determine the ATP licenses of supply chain
-      actors.
+      actors. (Note that the JSON objects described later in this specification retain the 1.0.0 version number, as the changes in the 1.1.0 revision are limited to this specification document.)
     </p>
   </section>
 
@@ -676,11 +676,8 @@
 
     <section>
       <h3>Claim: Organization Type</h3>
-      <p>Type of credential subject, can be Dispenser, Wholesaler or Manufacturer.</p>
-      <p>If, for example, an entity is a Manufacturer and a Wholesaler, they must have separate ATP credentials for
-        those roles. The Issuer will verify as part of their due diligence that the company is licensed as such. This
-        may prevent the appearance, for example, that a manufacturer is seeking information on another manufacturer's
-        products when it was their Wholesale division that was seeking the information. </p>
+      <p>Type of credential subject, can be Manufacturer, Repackager, Wholesaler, 3PL, or Dispenser.</p>
+      <p>Under the DSCSA, a trading partner can fit into one or more ATP categories, depending on their business practices. Only one Organization Type can be specified in a credential. In many cases, OCI expects that organizations will wish to have only a single ATP credential with its single Organization Type. For example, a Wholesaler with 3PL and repackaging divisions may face up to the ATP community as a Wholesaler, if that aligns with their business practices. This is because their primary business function is as a Wholesaler, and the sole use of a Wholesaler credential suits their needs (e.g. reduced complexity for IT and internal operations).<p>In other circumstances, an ATP may select to have the option to present more than one role. If, for example, an entity is a Manufacturer and a Wholesaler, they may desire to have an ATP credential for each role (e.g. this may prevent the appearance that a manufacturer is seeking information on another manufacturer's products when it was their wholesale division seeking the information.) In this case, the Issuer would verify as part of their due diligence that the company is licensed for both roles, and issue two separate ATP credentials.<p>As this decision ultimately relies on ATP business practices, OCI makes no recommendations with regard to multiple ATP credentials.</p>
       <table class="simple">
         <tr>
           <td style="min-width:100px"><b>Term</b></td>
