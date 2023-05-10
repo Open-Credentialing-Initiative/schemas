@@ -1,6 +1,6 @@
 > You can find a hosted version of this README at [https://open-credentialing-initiative.github.io/schemas/](https://open-credentialing-initiative.github.io/schemas/)
 
-# Version 1.1.0 
+# Version 1.0.0 
 
 ## IdentityCredential
 [IdentityCredential-v1.0.0.jsonld](https://open-credentialing-initiative.github.io/schemas/credentials/IdentityCredential-v1.0.0.jsonld)
@@ -34,4 +34,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-Copyright © 2023 Named editors. Contributors to [OCI](https://www.oc-i.org/).
+Copyright © 2022 Named editors. Contributors to [OCI](https://www.oc-i.org/).
