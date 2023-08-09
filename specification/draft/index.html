@@ -903,8 +903,8 @@
     <section>
       <h3>Verifiable Presentation of DSCSA Stakeholder Credentials</h3>
       <p>
-        Verifiable Presentations may be used to combine and present credentials. They can be packaged in such a way that
-        the authorship of the data is verifiable. OCI generates a Verifiable Presentation after [[vc-data-model]]
+        Verifiable Presentations are used to combine and present credentials. They are packaged in such a way that
+        the ownership of the data is verifiable. OCI generates a Verifiable Presentation after [[vc-data-model]]
         specification. OCI extends the <a href="https://www.w3.org/TR/vc-data-model/#jwt-decoding">JWT Encoding</a> and
         [[RFC7519]] section 4.1 by defining its own optionality and usage guidelines.
       </p>
@@ -925,9 +925,8 @@
           <tr>
             <td><b>`iss`</b></td>
             <td>
-              A digital wallet SHALL include a `iss` field in the JWT payload. This field represents the holder property
-              of the Verifiable Presentation and SHALL mimic the credential subject <a>DID</a> of the embedded
-              Verifiable Presentation.
+              A digital wallet SHALL include an iss field in the JWT payload. This field represents the holder property
+              of the Verifiable Presentation and SHALL be the Verifiable Credential's subject DID.
             </td>
           </tr>
           <tr>
@@ -947,16 +946,15 @@
           <tr>
             <td><b>`nbf`</b></td>
             <td>
-              A digital wallet MAY include a `nbf` field in the JWT payload. This field represents the UNIX timestamp of
-              the date from when on the Verifiable Presentation is valid.
+              A digital wallet MAY include a `nbf` field in the JWT payload. This field represents the UNIX timestamp
+              of the start date of the Verifiable Presentation's validity.
             </td>
           </tr>
           <tr>
             <td><b>`exp`</b></td>
             <td>
               A digital wallet SHALL include an `exp` field in the JWT payload. This field represents the UNIX timestamp
-              expiration date of the Verifiable Presentation and SHALL be five minutes in the future based on the
-              issuance date.
+              expiration date of the Verifiable Presentation and SHALL be five minutes later than the issuance date.
             </td>
           </tr>
           <tr>
