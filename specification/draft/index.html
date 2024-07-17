@@ -818,12 +818,9 @@
     <section>
       <h3>Claim: Subject Associated Identifier</h3>
       <p>
-        This attribute pair is <b>OPTIONAL</b>. it can be used to associate an identifier with the Subject DID of the
-        credential. As an example, a company's GLN can be associated with their GLN which is used in TI/TS EPCIS events
-        and PI Verification request and response messages. This can be used as an additional integrity check of the PI
-        Verification request or response message as the Associated Identifier Value should match the Requester GLN or
-        Responder GLN. It can also be used as an audit aid in collecting all communications about a product (connects
-        EPCIS, PI Verifications, and future Trace messages).
+        This attribute is <b>OPTIONAL</b>. It can be used to associate one or more identifiers with the Subject DID of the
+        credential. For example, a company's GLN may be inserted to associate the credential with respective TI/TS EPCIS events
+        or PI Verification messages.
       </p>
       <table class="simple">
         <tr>
@@ -880,7 +877,7 @@
                  "identifier": {
                     "@type":"PropertyValue",
                     "propertyID":"globalLocationNumber",
-                    "value":"1234567890123"
+                    "value":"1234567890123, 1234567890234"
                   },
                  "streetAddress":"Test Street 123",
                  "addressLocality":"Testlocality",
