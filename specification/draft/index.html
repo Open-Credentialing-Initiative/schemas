@@ -19,14 +19,14 @@
   <meta property="og:url" content="https://github.com/Open-Credentialing-Initiative/schemas">
 
   <title>Credential Schema</title>
-  <h2 id="subtitle">v1.2.0</h2>
+  <h2 id="subtitle">v1.3.0</h2>
   
   <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
   <script type="text/javascript" class="remove">
     var respecConfig = {
       specStatus: 'base',
       shortName: 'Credential Schema',
-      publishDate: '28 July 2023',
+      publishDate: '12 August 2024',
       logos: [],
       lint: {
         'check-punctuation': true,
@@ -119,7 +119,7 @@
 </head>
 
 <body>
-  <p class="copyright">Copyright © 2023 Named editors. Contributors to the Open Credentialing Initiative.</p>
+  <p class="copyright">Copyright © 2024 Named editors. Contributors to the Open Credentialing Initiative.</p>
   <section id="abstract">
     <p>
       In November 2013, the U.S. Congress enacted the Drug Supply Chain
@@ -818,12 +818,8 @@
     <section>
       <h3>Claim: Subject Associated Identifier</h3>
       <p>
-        This attribute pair is <b>OPTIONAL</b>. it can be used to associate an identifier with the Subject DID of the
-        credential. As an example, a company's GLN can be associated with their GLN which is used in TI/TS EPCIS events
-        and PI Verification request and response messages. This can be used as an additional integrity check of the PI
-        Verification request or response message as the Associated Identifier Value should match the Requester GLN or
-        Responder GLN. It can also be used as an audit aid in collecting all communications about a product (connects
-        EPCIS, PI Verifications, and future Trace messages).
+        This attribute is <b>OPTIONAL</b>. It can be used to associate one or more identifiers with the Subject DID of the
+        credential. For example, a company's GLN may be inserted to associate the credential with PI Verification messages.
       </p>
       <table class="simple">
         <tr>
@@ -877,11 +873,15 @@
                  "issuerName":"IssuerCompany Corp.",
                  "legalName":"Testcompany",
                  "organizationType":"Wholesaler",
-                 "identifier": {
+                 "identifier": [{
                     "@type":"PropertyValue",
                     "propertyID":"globalLocationNumber",
                     "value":"1234567890123"
-                  },
+                  },{
+                    "@type":"PropertyValue",
+                    "propertyID":"DUNSNumber",
+                    "value":"987654321"
+                  }],
                  "streetAddress":"Test Street 123",
                  "addressLocality":"Testlocality",
                  "addressRegion":"Testregion",
