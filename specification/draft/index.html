@@ -133,7 +133,7 @@
       interact with other trading partners that are also authorized.<br><br>
 	  
 	  In addition, the U.S. pharmaceutical supply chain includes two other major groups: 
-	  Authorities (e.g. federal and state regulators) and ATP Equivalents (i.e. trading partners that are not required to register with the FDA or obtain a State license, such as the Veterans Administration, Department of Defense, etc.). Together, these "DSCSA Stakeholders" (or "Stakeholders") represent the three key groups for DSCSA interoperability.<br><br>
+	  Authorities (e.g. federal and state regulators) and ATP-Equivalents (i.e. trading partners that are not required to register with the FDA or obtain a State license, such as the Veterans Administration, Department of Defense, etc.). Together, these "DSCSA Stakeholders" (or "Stakeholders") represent the three key groups for DSCSA interoperability.<br><br>
 
       The Open Credentialing Initiative (OCI) has come together to support the
       industry-wide implementation and adoption of the architecture
@@ -147,7 +147,7 @@
 
       This specification describes a Linked Data vocabulary for
       asserting organization-level identity verification and license status of
-      manufacturers, repackagers, wholesalers, third-party logistics providers (3PLs), dispensers, ATP equivalents, and authorities used to verify a counterparty
+      manufacturers, repackagers, wholesalers, third-party logistics providers (3PLs), dispensers, ATP-Equivalents, and authorities used to verify a counterparty
       identity and to determine the ATP licenses of supply chain
       actors (where applicable). 
 	  (Note that the JSON objects described later in this specification bear their own version numbers, as the changes in the 1.X.0 revision are limited to this specification document.)
@@ -250,7 +250,7 @@
           </li>
         </ul>
         <p>
-          <b>only</b> applies to the Stakeholder schemas (i.e. DSCSA ATP Credential, DSCSA ATP Equivalent, and DSCSA Authority) because there is a use case for consuming credential
+          <b>only</b> applies to the Stakeholder schemas (i.e. DSCSA ATP Credential, DSCSA ATP-Equivalent, and DSCSA Authority) because there is a use case for consuming credential
           applications to use these attributes to perform credential integrity checks.<br><br>
 
           However, these attributes <b>do not</b> apply to the Identity Credential schema, because while the usage of these associated
@@ -576,7 +576,7 @@
   <section>
     <h2>DSCSA Stakeholder Credential Schemas</h2>
     <p>
-	  As mentioned previously, there are three key groups for DSCSA interoperability: ATPs, ATP Equivalents, and Authorities. Each Stakeholder type has its own distinct schema: (1) the DSCSA ATP Credential, which represents and verifies a subject as an authorized trading partner; (2) the DSCSA ATP Equivalent Credential, which represents and verifies a subject as a trading partner that is not required to register with the FDA or obtain a State license; and (3) the DSCSA Authority Credential, which represents and verifies a subject as an authority as outlined under the statue or is generally recognized by industry (see OCI Conformance Criteria for Credential Issuers for more details).
+	  As mentioned previously, there are three key groups for DSCSA interoperability: ATPs, ATP-Equivalents, and Authorities. Each Stakeholder type has its own distinct schema: (1) the DSCSA ATP Credential, which represents and verifies a subject as an authorized trading partner; (2) the DSCSA ATP-Equivalent Credential, which represents and verifies a subject as a trading partner that is not required to register with the FDA or obtain a State license; and (3) the DSCSA Authority Credential, which represents and verifies a subject as an authority as outlined under the statue or is generally recognized by industry (see OCI Conformance Criteria for Credential Issuers for more details).
     </p>
 
     <table class="simple">
@@ -694,7 +694,7 @@
 
     <section>
       <h3>Claim: Organization Type</h3>
-      <p>Type of credential subject: can be Manufacturer, Repackager, Wholesaler, 3PL, or Dispenser. <i>Note that this claim is not present in the Authority credential. For more information about how Organization Type is ascribed to ATPs and ATP Equivalents, see section 5 of the Credential Issuer Conformance Criteria.</i></p>
+      <p>Type of credential subject: can be Manufacturer, Repackager, Wholesaler, 3PL, or Dispenser. <i>Note that this claim is not present in the Authority credential. For more information about how Organization Type is ascribed to ATPs and ATP-Equivalents, see section 5 of the Credential Issuer Conformance Criteria.</i></p>
       <p>Under the DSCSA, a trading partner can fit into one or more categories, depending on their business practices. Only one Organization Type can be specified in a credential. In many cases, OCI expects that organizations will wish to have only a single Stakeholder credential with its single Organization Type. For example, a Wholesaler with 3PL and repackaging divisions may face up to the community as a Wholesaler, if that aligns with their business practices. This is because their primary business function is as a Wholesaler, and the sole use of a Wholesaler credential suits their needs (e.g. reduced complexity for IT and internal operations).<p>In other circumstances, a Stakeholder may select to have the option to present more than one role. If, for example, an entity is a Manufacturer and a Wholesaler, they may desire to have an ATP credential for each role (e.g. this may prevent the appearance that a manufacturer is seeking information on another manufacturer's products when it was their wholesale division seeking the information.) In this case, the Issuer would verify as part of their due diligence that the company is licensed for both roles, and issue two separate ATP credentials.<p>As this decision ultimately relies on Stakeholder business practices, OCI makes no recommendations with regard to multiple Stakeholder credentials.</p>
       <table class="simple">
         <tr>
