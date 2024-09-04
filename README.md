@@ -1,6 +1,6 @@
 > You can find a hosted version of this README at [https://open-credentialing-initiative.github.io/schemas/](https://open-credentialing-initiative.github.io/schemas/)
 
-Find all schema specifications [https://open-credentialing-initiative.github.io/schemas/specification/latest/](here).
+Find all schema specifications [here](https://open-credentialing-initiative.github.io/schemas/specification/latest/).
 
 ---
 
