@@ -1,8 +1,5 @@
-> You can find a hosted version of this README at [https://open-credentialing-initiative.github.io/schemas/](https://open-credentialing-initiative.github.io/schemas/)
 
-Find all schema specifications [here](https://open-credentialing-initiative.github.io/schemas/specification/latest/).
-
----
+## 📂 Find all schema specifications [here](https://open-credentialing-initiative.github.io/schemas/specification/latest/).
 
 ## 🤝 Contributing
 
@@ -27,5 +24,8 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+---
+> You can find a hosted version of this README at [https://open-credentialing-initiative.github.io/schemas/](https://open-credentialing-initiative.github.io/schemas/)
 
 Copyright © 2022 Named editors. Contributors to [OCI](https://www.oc-i.org/).
