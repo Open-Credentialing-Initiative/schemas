@@ -903,9 +903,10 @@
     <section>
       <h3>Verifiable Presentation of DSCSA Stakeholder Credentials</h3>
       <p>
-        Verifiable Presentations may be used to combine and present credentials. They can be packaged in such a way that
-        the authorship of the data is verifiable. OCI generates a Verifiable Presentation after [[vc-data-model]]
-        specification.
+        Verifiable Presentations are used to combine and present credentials. They are packaged in such a way that
+        the ownership of the data is verifiable. OCI generates a Verifiable Presentation after [[vc-data-model]]
+        specification. OCI extends the <a href="https://www.w3.org/TR/vc-data-model/#jwt-decoding">JWT Encoding</a> and
+        [[RFC7519]] section 4.1 by defining its own optionality and usage guidelines.
       </p>
       <section>
         <h3>Verifiable Presentation Metadata</h3>
@@ -913,81 +914,84 @@
           <tr>
             <th><b>Term</b></th>
             <th><b>Description</b></th>
-            <th><b>Full IRI</b></th>
           </tr>
           <tr>
-            <td><b>jti</b></td>
+            <td><b>`jti`</b></td>
             <td>
-              This field represents the id property of the verifiable presentation being generated.
+              A digital wallet MAY include a `jti` field in the JWT payload. This field represents the id property of
+              the Verifiable Presentation.
             </td>
-            <td>https://w3c.github.io/vc-data-model/#jwt-encoding</td>
           </tr>
           <tr>
-            <td><b>iss</b></td>
+            <td><b>`iss`</b></td>
             <td>
-              Represents the holder property of the verifiable presentation being generated.
+              A digital wallet SHALL include an iss field in the JWT payload. This field represents the holder property
+              of the Verifiable Presentation and SHALL be the Verifiable Credential's subject DID.
             </td>
-            <td>https://w3c.github.io/vc-data-model/#jwt-encoding</td>
           </tr>
           <tr>
-            <td><b>aud</b></td>
+            <td><b>`aud`</b></td>
             <td>
-              Verifiable Presentation Audience. We might include PI_Verification in this field to represent that this VP
-              is used in this context
-              <br>
-              We might include ATP_DSCSA in this field to represent that this VP is used in this context
+              A digital wallet SHALL NOT include an `aud` field in the JWT payload. The recipient's DID of the JWT is
+              not known during presentation generation.
             </td>
-            <td>https://w3c.github.io/vc-data-model/#jwt-encoding</td>
           </tr>
           <tr>
-            <td><b>iat</b></td>
+            <td><b>`iat`</b></td>
             <td>
-              Issuance Date of the VP in EPOCH format | Used for determining whether or not the VP is valid by including
-              the OCI validity time frame defined in Digital Wallet Conformance Criteria
+              A digital wallet SHALL include an `iat` field in the JWT payload. This field represents the UNIX timestamp
+              of the issuance date of the Verifiable Presentation.
             </td>
-            <td>https://w3c.github.io/vc-data-model/#jwt-encoding</td>
           </tr>
           <tr>
-            <td><b>nbf</b></td>
+            <td><b>`nbf`</b></td>
             <td>
-              Issuance Date of the VC in EPOCH format
+              A digital wallet MAY include a `nbf` field in the JWT payload. This field represents the UNIX timestamp
+              of the start date of the Verifiable Presentation's validity.
             </td>
-            <td>https://w3c.github.io/vc-data-model/#jwt-encoding</td>
           </tr>
           <tr>
-            <td><b>exp</b></td>
+            <td><b>`exp`</b></td>
             <td>
-              Expiration Date of the VC in EPOCH format
+              A digital wallet SHALL include an `exp` field in the JWT payload. This field represents the UNIX timestamp
+              expiration date of the Verifiable Presentation and SHALL be five minutes later than the issuance date.
             </td>
-            <td>https://w3c.github.io/vc-data-model/#jwt-encoding</td>
           </tr>
           <tr>
-            <td><b>vp</b></td>
+            <td><b>`nonce`</b></td>
             <td>
-              Contains the Verifiable Presentation
+              A digital wallet SHALL include a `nonce` field in the JWT payload. This field represents a random value
+              that is used to prevent replay attacks.
             </td>
-            <td>https://w3c.github.io/vc-data-model/#jwt-encoding</td>
           </tr>
           <tr>
-            <td><b>vp.type</b></td>
-            <td>
-              The type property is required and expresses the type of presentation, such as VerifiablePresentation.
+            <td><b>`vp`</b>
             </td>
-            <td>https://w3c.github.io/vc-data-model/#presentations-0</td>
+            <td>
+              A digital wallet SHALL include a `vp` object in the JWT payload. This object contains further data of
+              the Verifiable Presentation.
+            </td>
           </tr>
           <tr>
-            <td><b>vp.verifiableCredential</b></td>
+            <td><b>`vp.@context`</b></td>
             <td>
-              The VerifiableCredential (including all attributes) that are represented by this VP
+              A digital wallet SHALL include a `@context` field in the `vp` object. This field represents the context
+              of the Verifiable Presentation and SHALL be set to `https://www.w3.org/2018/credentials/v1`.
             </td>
-            <td>https://w3c.github.io/vc-data-model/#presentations-0</td>
           </tr>
           <tr>
-            <td><b>nonce</b></td>
+            <td><b>`vp.type`</b></td>
             <td>
-              Contains the corrUUID for which the VP has been generated for.
+              A digital wallet SHALL include a `type` field in the `vp` object. This field represents the type of
+              the Verifiable Presentation and SHALL be set to `VerifiablePresentation`.
             </td>
-            <td>https://www.iana.org/assignments/jwt/jwt.xhtml</td>
+          </tr>
+          <tr>
+            <td><b>`vp.verifiableCredential`</b></td>
+            <td>
+                A digital wallet SHALL include a `verifiableCredential` field in the `vp` object. This field contains
+                the embedded ATP Verifiable Credential.
+            </td>
           </tr>
         </table>
       </section>
